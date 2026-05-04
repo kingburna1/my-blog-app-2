@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="error-container">
+    <div class="error-card">
+    <h1>403 Error  (403)</h1>
+    <h2>Forbidden</h2>
+    <p>You do not have permission to access this page.</p>
+    <p>Please contact the administrator if you believe this is an error.</p>
+    <a href="{{ url_for('main.home') }}" class="btn-linkedin">Go to Home</a>
+    </div>
+</div>
+{% endblock %}

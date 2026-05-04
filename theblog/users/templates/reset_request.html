@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+     <link rel="stylesheet" type="text/css" href="{{ url_for('users.static', filename='users_style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="register-wrapper">
+    <div class="register-card">
+        <form method="post" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-header">
+                <h2 class="form-title">Reset Password</h2>
+                <p class="text-muted">Enter your details to secure your account</p>
+            </div>
+            
+            <div class="form-body">
+                {% for field in form if field.name not in ['csrf_token', 'submit'] %}
+                <div class="form-group mb-3">
+                    {{ field.label(class="form-label") }}
+                    {{ field(class="form-control custom-input" + (" is-invalid" if field.errors else "")) }}
+                    {% for error in field.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+                </div>
+                {% endfor %}
+
+                {{ form.submit(class="btn btn-register w-100 mt-2") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

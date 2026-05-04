@@ -1,0 +1,174 @@
+body{
+
+    background-image: url(https://image.smythstoys.com/zoom/247170.webp);
+}
+.register-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+.register-card .form-header .form-title {
+    color: #0077b5 !important;
+    font-weight: 700 !important;
+    font-size: 28px !important;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.register-card {
+    background: #fefdfd;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-header h2 {
+    font-weight: 700;
+    color: #0077b5;
+    margin-bottom: 5px;
+}
+
+.custom-input {
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #0077b5;
+    box-shadow: 0 0 0 3px rgba(0, 119, 181, 0.2);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.btn-register {
+    background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+    color: white;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+    color: white;
+}
+
+.form-footer a {
+    color: #0077b5;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+
+.forgot-password a {
+    color: #0077b5;
+    font-weight: 600;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline !important;
+}
+
+.form-check-input:checked {
+    background-color: #0077b5;
+    border-color: #0077b5;
+}
+
+
+.register-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+.post-media img, .post-media video {
+    max-height: 500px;
+    object-fit: cover;
+    background-color: #000;
+}
+
+
+.article-title {
+    color: #000000e6;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.article-title:hover {
+    color: #0077b5;
+    text-decoration: underline !important;
+}
+
+
+.btn-linkedin {
+    background-color: #0077b5;
+    color: white;
+    border: none;
+}
+
+.btn-linkedin:hover {
+    background-color: #004182;
+    color: white;
+}
+
+
+.article-content {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.4;
+}
+
+/* Account Page Enhancements */
+.account-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.account-img {
+    transition: transform 0.3s ease;
+}
+
+.account-img:hover {
+    transform: scale(1.03);
+}
+
+
+.form-label {
+    color: #000000e6;
+    font-size: 0.9rem;
+}
+
+
+.custom-input:focus {
+    border-color: #0077b5;
+    box-shadow: 0 0 0 1px #0077b5;
+}
+
+
+.register-card hr {
+    border-top: 1px solid #ebebeb;
+    margin: 20px 0;
+}
+
+.form-text {
+    font-size: 0.8rem;
+    color: #666;
+}

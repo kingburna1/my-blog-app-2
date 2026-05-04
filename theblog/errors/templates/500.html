@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-card">
+        <h1>500</h1>
+        <h2>Internal Server Error</h2>
+        <p>An internal server error has occurred.</p>
+        <p>Please try again later or contact the administrator if the problem persists.</p>
+        <a href="{{ url_for('main.home') }}" class="btn-linkedin">Go to Home</a>
+    </div>
+</div>
+{% endblock %}

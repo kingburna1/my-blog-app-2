@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('posts.static', filename='style.css') }}">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="post-container mt-4">
+    {% for post in posts %}
+        <article class="post-card shadow-sm">
+           
+            <div class="post-header">
+                <img class="post-author-img" 
+                     src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+                <div class="post-author-info">
+                    <p class="post-author-name">{{ post.author.username }}</p>
+                    
+                    <p class="post-author-bio">Member since {{ post.author.id * 7 }} days ago</p> 
+                    <span class="post-date">{{ post.date_posted.strftime('%b %d') }} • <i class="fas fa-globe-africa"></i></span>
+                </div>
+            </div>
+
+           
+            <div class="post-body">
+                <a href="{{ url_for('posts.post', post_id=post.id) }}" class="post-title-link">
+                    {{ post.title }}
+                </a>
+                <p class="post-text">
+                    {{ post.content[:250] }}{% if post.content|length > 250 %}... <span class="text-muted">see more</span>{% endif %}
+                </p>
+            </div>
+
+           
+            {% if post.image_file and post.image_file != 'default.jpg' %}
+                <div class="post-media-box">
+                    <img src="{{ url_for('posts.static', filename='post_pics/' + post.image_file) }}" alt="Post Content">
+                </div>
+            {% endif %}
+
+            {% if post.video_file %}
+                <div class="post-media-box">
+                    <video controls>
+                        <source src="{{ url_for('posts.static', filename='post_videos/' + post.video_file) }}" type="video/mp4">
+                    </video>
+                </div>
+            {% endif %}
+
+            <div class="interaction-bar">
+                <form action="{{ url_for('posts.like_post', post_id=post.id) }}" method="POST" style="flex: 1;">
+      
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        
+        <button type="submit" class="action-btn w-100 border-0 bg-transparent">
+            {% if post.likes | selectattr('user_id', 'equalto', current_user.id) | list | length > 0 %}
+                <i class="fas fa-thumbs-up" style="color: #0077b5;"></i> 
+                <span style="color: #0077b5;">Liked</span>
+            {% else %}
+                <i class="far fa-thumbs-up"></i> Like
+            {% endif %}
+            
+           
+            <span class="ms-1 badge rounded-pill bg-light text-dark">{{ post.likes|length }}</span>
+        </button>
+    </form>
+                <button class="action-btn">
+                    <i class="far fa-comment-dots"></i> Comment
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-share"></i> Share
+                </button>
+                <button class="action-btn">
+                    <i class="far fa-paper-plane"></i> Send
+                </button>
+            </div>
+        </article>
+    {% endfor %}
+</div>
+{% endblock content %}
